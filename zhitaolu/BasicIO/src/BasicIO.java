@@ -36,5 +36,9 @@ public class BasicIO {
 		//return null;
 	};
 	
-	
+	public static void fileInout()
+	{
+		
+	};
+	}
 }
