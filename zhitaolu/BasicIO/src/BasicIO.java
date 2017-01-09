@@ -1,12 +1,18 @@
 // reference to the scanner class which handle input from users
 import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class BasicIO {
 	String InputSource = "";
 	String OutputSource = "";
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		// read from key board
-		StringInOut();
+		//StringInOut();
+		FileInOut();
 		//return null;
 	};
 	
@@ -36,9 +42,30 @@ public class BasicIO {
 		//return null;
 	};
 	
-	public static void fileInout()
+	public static void FileInOut() throws IOException
 	{
-		
+		FileInputStream in = null;
+        FileOutputStream out = null;
+
+        try {
+ 
+				in = new FileInputStream("src/xanadu.txt");
+				out = new FileOutputStream("src/outagain.txt");	
+				int c;
+
+				while ((c = in.read()) != -1) {
+					//display read in
+					System.out.println( "reading in:"+c );					
+					out.write(c);
+				}
+        	} finally {
+            if (in != null) {
+                in.close();
+            }
+            if (out != null) {
+                out.close();
+            }
+        }
+
 	};
-	}
 }
